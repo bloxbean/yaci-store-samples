@@ -1,0 +1,30 @@
+server:
+  port: 9091
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/yaci_indexer
+#    username: user
+#    password:
+
+  flyway:
+    locations: classpath:db/migration/{vendor}
+    out-of-order: true
+
+apiPrefix: /api/v1
+
+logging:
+  file:
+    name: ./logs/metadata-reader.log
+
+store:
+  cardano:
+    host: preprod-node.world.dev.cardano.org
+    port: 30000
+    protocol-magic: 1
+#    sync-start-blockhash: a3dd1357a2869331e0d7353fdafa6c1eba0940c3a1d56d7f47cd41ec4dfac347
+#    sync-start-slot: 15341190
